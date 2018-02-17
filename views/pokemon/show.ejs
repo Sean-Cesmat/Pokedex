@@ -1,0 +1,26 @@
+<body class='pokemon-show'>
+<%- include ../partials/header %>
+
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s9 center-align pokemon-title">
+      <h1><%= pokemon.forms[0].name %></h1>
+    </div>
+    <div class="col s3 center-align">
+      <img src="<%= pokemon.sprites.front_default %>">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6 blue-block">
+      <h5>Ability: <%= pokemon.abilities[1].ability.name %></h5>
+      <h5>Weight: <%= pokemon.weight %></h5>
+    </div>
+    <div class="col s6">
+
+    </div>
+  </div>
+
+</div>
+
+
+<%- include ../partials/footer %>

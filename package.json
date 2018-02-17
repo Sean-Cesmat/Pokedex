@@ -1,0 +1,33 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "My Pokedex",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sean-Cesmat/pokedex.git"
+  },
+  "author": "SeanCesmat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sean-Cesmat/pokedex/issues"
+  },
+  "homepage": "https://github.com/Sean-Cesmat/pokedex#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "pg": "^6.4.2",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.83.0",
+    "rowdy-logger": "^1.0.0",
+    "sequelize": "^4.33.4"
+  },
+  "devDependencies": {
+    "js-logging": "^0.1.0"
+  }
+}
