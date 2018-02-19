@@ -12,12 +12,26 @@ app.use(express.static('static'));
 
 
 app.get('/', function(req, res) {
-  var pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=5';
-  
+  var pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=6';
+  var nextUrl = '/page2';
+
   request(pokemonUrl, function(error, response, body) {
     var pokemon = JSON.parse(body).results;
     // res.send(pokemon);
-    res.render('index', {pokemon: pokemon});
+    res.render('index', {pokemon: pokemon, nextUrl: nextUrl});
+  });
+});
+
+app.get('/page:pageNum', function(req, res) {
+  var pageNumber = req.params.pageNum;
+  var pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=6&offset=' + (6 * pageNumber);
+  var nextNum =  parseInt(req.params.pageNum) + 1;
+  var nextUrl = '/page' + nextNum;
+
+  request(pokemonUrl, function(error, response, body) {
+    var pokemon = JSON.parse(body).results;
+    // res.send(pokemon);
+    res.render('index', {pokemon: pokemon, nextUrl: nextUrl});
   });
 });
 

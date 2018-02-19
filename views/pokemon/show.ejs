@@ -1,26 +1,66 @@
+<%- include ../partials/head %>
 <body class='pokemon-show'>
-<%- include ../partials/header %>
+  <%- include ../partials/header %>
 
-<div class="container">
-  <div class="row valign-wrapper">
-    <div class="col s9 center-align pokemon-title">
-      <h1><%= pokemon.forms[0].name %></h1>
+  <div class="container show z-depth-3">
+    <div class="row valign-wrapper">
+      <div class="col s9 center-align pokemon-title">
+        <h1><%= pokemon.forms[0].name %></h1>
+        <div>
+          <a href="#" class="add-favorite" data-pokemon="<%= pokemon.name %>">
+            <i class="material-icons right">favorite_border</i>Add To Favorites
+          </a>
+        </div>
+      </div>
+      <div class="col s3 center-align">
+        <img src="<%= pokemon.sprites.front_default %>">
+      </div>
     </div>
-    <div class="col s3 center-align">
-      <img src="<%= pokemon.sprites.front_default %>">
+    <div class="row blue-block valign-wrapper z-depth-2">
+      <div class="col s6 m3 center-align">
+        <h5><span>Ability</span><br /><%= pokemon.abilities[1].ability.name %></h5>
+      </div>
+      <div class="col s6 m2 center-align">
+        <h5><span>Weight</span><br /><%= pokemon.weight %></h5>
+      </div>
+      <div class="col s5 m3 center-align">
+        <h5><span><i class="material-icons" style="transform: rotate(90deg);">straighten</i>Height</span><br /><%= pokemon.height %></h5>
+      </div>
+      <div class="col s7 m4 center-align">
+        <h5><span><i class="material-icons">vertical_align_bottom</i>Base Experience</span><br /><%= pokemon.base_experience %></h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <div class="row">
+          <h3>Stats</h3>
+          <% pokemon.stats.forEach(function(stat) { %>
+            <div class="col s6">
+              <div class="stat <%= stat.stat.name %>">
+                <%= stat.stat.name %>
+              </div>
+              <div class="progress">
+                <div class="determinate" style="width: <%= stat.base_stat %>%"></div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <div class="col s6">
+        <div class="row">
+          <h3>Type</h3>
+          <% pokemon.types.forEach(function(type) { %>
+            <div class="col s6">
+              <div class="type <%= type.type.name %>">
+                <%= type.type.name %>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col s6 blue-block">
-      <h5>Ability: <%= pokemon.abilities[1].ability.name %></h5>
-      <h5>Weight: <%= pokemon.weight %></h5>
-    </div>
-    <div class="col s6">
-
-    </div>
-  </div>
-
-</div>
 
 
 <%- include ../partials/footer %>

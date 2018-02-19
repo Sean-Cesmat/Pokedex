@@ -1,5 +1,6 @@
-<%- include ./partials/header %>
+<%- include ./partials/head %>
 <body>
+  <%- include ./partials/header %>
   <div class="container">
     <% pokemon.forEach(function(pokemon, id) { %>
       <% if (id % 3 === 0 || id ===0 ) { %>
@@ -11,10 +12,13 @@
               <span class="card-title"><%= pokemon.name %></span>
               <!-- <p>I am a very simple card. I am good at containing small bits of information.
               I am convenient because I require little markup to use effectively.</p> -->
-              <a href="/pokemon/<%= pokemon.name %>" class="single-pokemon" data-pokemon="<%= pokemon.name %>">View More</a>
+              <a href="/pokemon/<%= pokemon.name %>" class="single-pokemon small-btn btn" data-pokemon="<%= pokemon.name %>">View More</a>
             </div>
+            <i class="material-icons pokeball-dot">brightness_1</i>
             <div class="card-action">
-              <a href="#">Add To My Favorites</a>
+              <a href="#" class="add-favorite" data-pokemon="<%= pokemon.name %>">
+                <i class="material-icons right">favorite_border</i>Add To Favorites
+              </a>
             </div>
           </div>
         </div>
@@ -23,6 +27,16 @@
       <% } %>
     <% }); %>
 
+    <div class="container">
+      <div class="row">
+        <div class="col s6 left-align">
+          <a href="#" class="waves-effect waves-light next btn">Last Page</a>
+        </div>
+        <div class="col s6 right-align">
+          <a href="<%= nextUrl %>" class="waves-effect waves-light next btn">Next Page</a>
+        </div>
+      </div>
+    </div>
 
   </div>
 
